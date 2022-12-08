@@ -49,4 +49,11 @@ class SectionServiceTest {
         assertThat(lineDto.getName()).isEqualTo("2호선");
         assertThat(lineDto.getStations()).containsExactly("교대역", "역삼역");
     }
+
+    @Test
+    void 역은_등록되어_있지만_해당노선의_역이아닌경우_삭제시_예외발생() {
+        assertThatThrownBy(() -> sectionService.deleteSection("2호선", "양재역"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 해당 노선에서 해당 역은 없습니다.");
+    }
 }
