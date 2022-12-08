@@ -40,4 +40,8 @@ public class LineService {
                 .map(Line::toDto)
                 .collect(Collectors.toList());
     }
+
+    public void deleteLine(String lineName) {
+        lineRepository.deleteByName(lineName);
+    }
 }

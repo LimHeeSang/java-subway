@@ -38,4 +38,11 @@ public class LineServiceTest {
         assertThatThrownBy(() -> lineService.createLine("2호선", "신창역", "서울역"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 노선_삭제() {
+        lineService.deleteLine("2호선");
+        List<LineDto> lines = lineService.getLines();
+        assertThat(lines.size()).isEqualTo(2);
+    }
 }
