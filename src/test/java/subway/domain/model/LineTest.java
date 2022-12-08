@@ -59,4 +59,12 @@ class LineTest {
 
         assertThat(lineDto.getStations()).containsExactly("남부터미널역", "양재역", "매봉역");
     }
+
+    @Test
+    void 종착점을_제거할경우_다음역이_종착점() {
+        threeLine.deleteStation(new Station("매봉역"));
+        LineDto lineDto = threeLine.toDto();
+
+        assertThat(lineDto.getStations()).containsExactly("교대역", "남부터미널역", "양재역");
+    }
 }
