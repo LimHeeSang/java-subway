@@ -19,27 +19,27 @@ public class LineProvider {
     }
 
     private static List<Station> createTwoLineStations() {
-        return List.of(
+        return new ArrayList<>(List.of(
                 new Station("교대역"),
                 new Station("강남역"),
                 new Station("역삼역")
-        );
+        ));
     }
 
     private static List<Station> createThreeLineStations() {
-        return List.of(
+        return new ArrayList<>(List.of(
                 new Station("교대역"),
                 new Station("남부터미널역"),
                 new Station("양재역"),
                 new Station("매봉역")
-        );
+        ));
     }
 
     private static List<Station> createSinbundangStations() {
-        return List.of(
+        return new ArrayList<>(List.of(
                 new Station("강남역"),
                 new Station("양재역"),
                 new Station("양재시민의숲역")
-        );
+        ));
     }
 }
