@@ -42,4 +42,11 @@ class StationRepositoryTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 해당 역을 찾을 수 없습니다.");
     }
+
+    @Test
+    void 역_이름이_2글자_미만이면_예외발생() {
+        assertThatThrownBy(() -> new Station("상역"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 역이름은 2글자 이상이어야 합니다.");
+    }
 }
