@@ -4,7 +4,6 @@ import subway.domain.model.Line;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class LineRepository {
 
@@ -12,10 +11,8 @@ public class LineRepository {
     private static final String ERROR_ALREADY_EXIST_LINE = "[ERROR] 이미 등록되어있는 노선 입니다.";
     private final List<Line> lines;
 
-    public LineRepository(List<String> lines) {
-        this.lines = lines.stream()
-                .map(Line::new)
-                .collect(Collectors.toList());
+    public LineRepository(List<Line> lines) {
+        this.lines = lines;
     }
 
     public Line findByName(String name) {

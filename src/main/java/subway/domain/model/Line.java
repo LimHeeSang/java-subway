@@ -32,19 +32,6 @@ public class Line {
         return this.name.equals(name);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Line line = (Line) o;
-        return Objects.equals(name, line.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
-    }
-
     public void addStation(int sectionNumber, Station station) {
         validateSectionNumber(sectionNumber);
         stations.add(sectionNumber, station);
@@ -83,5 +70,23 @@ public class Line {
                 .filter(s -> s.equals(station))
                 .findFirst()
                 .orElseThrow();
+    }
+
+    public boolean hasStation(String name) {
+        return stations.stream()
+                .anyMatch(station -> station.isEqual(name));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Line line = (Line) o;
+        return Objects.equals(name, line.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
