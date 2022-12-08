@@ -38,6 +38,7 @@ public class StationRepository {
     }
 
     public void deleteByName(String name) {
-        stations.removeIf(station -> station.isEqual(name));
+        Station station = findByName(name);
+        stations.remove(station);
     }
 }

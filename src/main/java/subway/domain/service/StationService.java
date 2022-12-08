@@ -29,4 +29,8 @@ public class StationService {
                 .map(Station::getName)
                 .collect(Collectors.toList());
     }
+
+    public void deleteStation(String name) {
+        stationRepository.deleteByName(name);
+    }
 }
