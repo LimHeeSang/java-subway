@@ -16,6 +16,17 @@ public class StationRepository {
                 .collect(Collectors.toList());
     }
 
+    public Station getByName(String name) {
+        return stations.stream()
+                .filter(station -> station.isEqual(name))
+                .findFirst()
+                .orElseThrow();
+    }
+
+    public void add(Station station) {
+        stations.add(station);
+    }
+
     public List<Station> findAll() {
         return Collections.unmodifiableList(stations);
     }

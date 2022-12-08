@@ -10,6 +10,10 @@ public class Station {
         this.name = name;
     }
 
+    public boolean isEqual(String name) {
+        return this.name.equals(name);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
