@@ -25,6 +25,9 @@ public class StationRepository {
     }
 
     public void add(Station station) {
+        if (stations.contains(station)) {
+            throw new IllegalArgumentException("[ERROR] 이미 등록되어있는 역 입니다.");
+        }
         stations.add(station);
     }
 

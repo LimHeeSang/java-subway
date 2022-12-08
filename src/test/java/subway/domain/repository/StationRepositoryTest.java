@@ -49,4 +49,11 @@ class StationRepositoryTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 역이름은 2글자 이상이어야 합니다.");
     }
+
+    @Test
+    void 이미있는_역이름_등록시_예외발생() {
+        assertThatThrownBy(() -> stationRepository.add(new Station("강남역")))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 이미 등록되어있는 역 입니다.");
+    }
 }
