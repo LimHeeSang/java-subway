@@ -42,6 +42,7 @@ public class Line {
 
     public void addStation(int sectionNumber, Station station) {
         stations.add(sectionNumber, station);
+        System.out.println(stations.size());
     }
 
     public LineDto toDto() {
