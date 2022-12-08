@@ -54,4 +54,16 @@ public class Line {
                 .map(Station::getName)
                 .collect(Collectors.toList());
     }
+
+    public void deleteStation(Station station) {
+        getStation(station);
+        stations.remove(station);
+    }
+
+    private void getStation(Station station) {
+        stations.stream()
+                .filter(s -> s.equals(station))
+                .findFirst()
+                .orElseThrow();
+    }
 }
