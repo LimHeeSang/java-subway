@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 public class Sections {
 
     private static final String ERROR_NOT_EXIST_SECTION = "[ERROR] 해당 번호는 없는 구간입니다.";
+    private static final int CRITERION_START_OR_END_SIZE = 1;
+    private static final int CRITERION_MID_SIZE = 2;
     private final List<Section> sections;
 
     public Sections() {
@@ -41,10 +43,41 @@ public class Sections {
     }
 
     public void deleteStation(String station) {
-        List<Section> filterSection = filterSectionHas(station);
+        List<Section> filterSections = filterSectionHasStation(station);
+        if (isStartOrEnd(filterSections)) {
+            deleteStartOrEndStation(filterSections);
+        }
+        if (isMid(filterSections)) {
+            deleteMidStation(filterSections);
+        }
+    }
 
-        Section section = filterSection.get(0);
-        Section otherSection = filterSection.get(1);
+    private boolean isStartOrEnd(List<Section> filterSection) {
+        return filterSection.size() == CRITERION_START_OR_END_SIZE;
+    }
+
+    private boolean isMid(List<Section> filterSection) {
+        return filterSection.size() == CRITERION_MID_SIZE;
+    }
+
+    private void deleteStartOrEndStation(List<Section> filterSections) {
+        Section section = filterSections.get(0);
+        sections.remove(section);
+        if (section.isStart()) {
+            decreasePositions();
+        }
+    }
+
+    private void decreasePositions() {
+        for (Section section : sections) {
+            section.decreasePosition();
+        }
+    }
+
+    private void deleteMidStation(List<Section> filterSections) {
+        Section section = filterSections.get(0);
+        Section otherSection = filterSections.get(1);
+
         sections.remove(section);
         sections.remove(otherSection);
 
@@ -52,7 +85,7 @@ public class Sections {
         sections.add(combineSection);
     }
 
-    private List<Section> filterSectionHas(String station) {
+    private List<Section> filterSectionHasStation(String station) {
         return sections.stream()
                 .filter(section -> section.hasStation(station))
                 .collect(Collectors.toList());

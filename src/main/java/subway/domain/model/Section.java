@@ -7,8 +7,9 @@ import java.util.Objects;
 public class Section {
 
     private static final int EXPAND_POSITION_VALUE = 1;
+    private static final int START_SECTION_POSITION = 1;
 
-    private final int position;
+    private int position;
     private final Station left;
     private final Station right;
 
@@ -43,6 +44,14 @@ public class Section {
 
     public Section combine(Section section) {
         return new Section(this.position, this.left, section.right);
+    }
+
+    public boolean isStart() {
+        return this.position == START_SECTION_POSITION;
+    }
+
+    public void decreasePosition() {
+        position--;
     }
 
     @Override
