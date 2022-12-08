@@ -55,4 +55,11 @@ class LineTest {
         LineDto lineDto = line.toDto();
         assertThat(lineDto.getStations()).containsExactly("강남역", "역삼역");
     }
+
+    @Test
+    void 노선에_맨뒤역_삭제() {
+        line.deleteStation("역삼역");
+        LineDto lineDto = line.toDto();
+        assertThat(lineDto.getStations()).containsExactly("교대역", "강남역");
+    }
 }
