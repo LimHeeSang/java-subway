@@ -19,4 +19,15 @@ public class LineRepository {
     public List<Line> findAll() {
         return Collections.unmodifiableList(lines);
     }
+
+    public void add(Line line) {
+        lines.add(line);
+    }
+
+    public Line findByName(String name) {
+        return lines.stream()
+                .filter(line -> line.isEqual(name))
+                .findFirst()
+                .orElseThrow();
+    }
 }

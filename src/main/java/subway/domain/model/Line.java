@@ -3,10 +3,15 @@ package subway.domain.model;
 import java.util.Objects;
 
 public class Line {
+
     private String name;
 
     public Line(String name) {
         this.name = name;
+    }
+
+    public boolean isEqual(String name) {
+        return this.name.equals(name);
     }
 
     @Override
