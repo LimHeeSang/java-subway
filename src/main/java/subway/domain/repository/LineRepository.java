@@ -22,7 +22,7 @@ public class LineRepository {
                 .orElseThrow(() -> new IllegalArgumentException(ERROR_NOT_EXIST_LINE));
     }
 
-    public void add(Line line) {
+    public void save(Line line) {
         if (lines.contains(line)) {
             throw new IllegalArgumentException(ERROR_ALREADY_EXIST_LINE);
         }
@@ -30,7 +30,8 @@ public class LineRepository {
     }
 
     public void deleteByName(String name) {
-        lines.removeIf(line -> line.isEqual(name));
+        Line findLine = findByName(name);
+        lines.remove(findLine);
     }
 
     public List<Line> findAll() {

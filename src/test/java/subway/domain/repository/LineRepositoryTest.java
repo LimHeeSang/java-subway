@@ -30,7 +30,7 @@ class LineRepositoryTest {
 
     @Test
     void 노선_등록() {
-        lineRepository.add(new Line("1호선"));
+        lineRepository.save(new Line("1호선"));
         Line findLine = lineRepository.findByName("1호선");
         assertThat(findLine).isEqualTo(new Line("1호선"));
     }
@@ -52,7 +52,7 @@ class LineRepositoryTest {
 
     @Test
     void 이미있는_역이름_등록시_예외발생() {
-        assertThatThrownBy(() -> lineRepository.add(new Line("2호선")))
+        assertThatThrownBy(() -> lineRepository.save(new Line("2호선")))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 이미 등록되어있는 노선 입니다.");
     }
