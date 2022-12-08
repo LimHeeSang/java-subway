@@ -17,10 +17,6 @@ public class LineRepository {
                 .collect(Collectors.toList());
     }
 
-    public List<Line> findAll() {
-        return Collections.unmodifiableList(lines);
-    }
-
     public void add(Line line) {
         lines.add(line);
     }
@@ -34,5 +30,9 @@ public class LineRepository {
 
     public void deleteByName(String name) {
         lines.removeIf(line -> line.isEqual(name));
+    }
+
+    public List<Line> findAll() {
+        return Collections.unmodifiableList(lines);
     }
 }

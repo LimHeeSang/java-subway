@@ -42,4 +42,11 @@ class LineRepositoryTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 해당 노선을 찾을 수 없습니다.");
     }
+
+    @Test
+    void 노선_이름이_2글자_미만이면_예외발생() {
+        assertThatThrownBy(() -> new Line("한선"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 노선 이름은 2글자 이상이어야 합니다.");
+    }
 }

@@ -1,5 +1,7 @@
 package subway.domain.model;
 
+import subway.domain.model.validator.LineValidator;
+
 import java.util.Objects;
 
 public class Line {
@@ -7,6 +9,7 @@ public class Line {
     private String name;
 
     public Line(String name) {
+        LineValidator.validate(name);
         this.name = name;
     }
 
