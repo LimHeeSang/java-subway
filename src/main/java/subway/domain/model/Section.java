@@ -1,7 +1,6 @@
 package subway.domain.model;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,6 +35,14 @@ public class Section {
         expandSections.add(new Section(position, this.left, station));
         expandSections.add(new Section(position + EXPAND_POSITION_VALUE, station, this.right));
         return expandSections;
+    }
+
+    public boolean hasStation(String station) {
+        return (left.isEqual(station) || right.isEqual(station));
+    }
+
+    public Section combine(Section section) {
+        return new Section(this.position, this.left, section.right);
     }
 
     @Override

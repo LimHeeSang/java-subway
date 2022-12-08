@@ -27,6 +27,14 @@ public class Line {
         }
     }
 
+    public void addSection(int position, Station station) {
+        sections.addSection(position, station);
+    }
+
+    public void deleteStation(String station) {
+        sections.deleteStation(station);
+    }
+
     public LineDto toDto() {
         return new LineDto(name, sections.toDto());
     }
@@ -42,9 +50,5 @@ public class Line {
     @Override
     public int hashCode() {
         return Objects.hash(name);
-    }
-
-    public void addSection(int position, Station station) {
-        sections.addSection(position, station);
     }
 }

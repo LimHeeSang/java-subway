@@ -2,6 +2,7 @@ package subway.domain.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Sections {
 
@@ -37,5 +38,23 @@ public class Sections {
                 .filter(section -> section.isEqual(position))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException(ERROR_NOT_EXIST_SECTION));
+    }
+
+    public void deleteStation(String station) {
+        List<Section> filterSection = filterSectionHas(station);
+
+        Section section = filterSection.get(0);
+        Section otherSection = filterSection.get(1);
+        sections.remove(section);
+        sections.remove(otherSection);
+
+        Section combineSection = section.combine(otherSection);
+        sections.add(combineSection);
+    }
+
+    private List<Section> filterSectionHas(String station) {
+        return sections.stream()
+                .filter(section -> section.hasStation(station))
+                .collect(Collectors.toList());
     }
 }
