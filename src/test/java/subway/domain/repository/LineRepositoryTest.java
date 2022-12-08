@@ -57,4 +57,11 @@ class LineRepositoryTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 이미 등록되어있는 노선 입니다.");
     }
+
+    @Test
+    void 노선이름이_선으로_안끝나면_예외발생() {
+        assertThatThrownBy(() -> new Line("에버랜드"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 노선 이름은 선으로 끝나야 합니다.");
+    }
 }
