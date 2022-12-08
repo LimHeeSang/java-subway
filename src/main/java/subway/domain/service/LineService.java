@@ -30,12 +30,12 @@ public class LineService {
         lineRepository.save(line);
     }
 
-    public List<LineDto> getLines() {
+    public List<LineDto> getLinesAndStations() {
         List<Line> lines = lineRepository.findAll();
         return mapToDto(lines);
     }
 
-    private static List<LineDto> mapToDto(List<Line> lines) {
+    private List<LineDto> mapToDto(List<Line> lines) {
         return lines.stream()
                 .map(Line::toDto)
                 .collect(Collectors.toList());
@@ -43,5 +43,16 @@ public class LineService {
 
     public void deleteLine(String lineName) {
         lineRepository.deleteByName(lineName);
+    }
+
+    public List<String> getLines() {
+        List<Line> lines = lineRepository.findAll();
+        return mapToName(lines);
+    }
+
+    private static List<String> mapToName(List<Line> lines) {
+        return lines.stream()
+                .map(Line::getName)
+                .collect(Collectors.toList());
     }
 }
