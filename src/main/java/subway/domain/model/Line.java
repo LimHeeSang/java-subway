@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 
 public class Line {
 
+    private static final int MINIMUM_STATION_SIZE = 2;
+    private static final String ERROR_INVLID_STATIONS_SIZE = "[ERROR] 역이 2개밖에 없어서 삭제가 불가능합니다.";
     private final String name;
     private final List<Station> stations;
 
@@ -56,8 +58,15 @@ public class Line {
     }
 
     public void deleteStation(Station station) {
+        validateSize();
         getStation(station);
         stations.remove(station);
+    }
+
+    private void validateSize() {
+        if (stations.size() <= MINIMUM_STATION_SIZE) {
+            throw new IllegalStateException(ERROR_INVLID_STATIONS_SIZE);
+        }
     }
 
     private void getStation(Station station) {

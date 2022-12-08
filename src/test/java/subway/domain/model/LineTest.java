@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import subway.domain.model.dto.LineDto;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.util.Lists.newArrayList;
 
 class LineTest {
@@ -66,5 +67,13 @@ class LineTest {
         LineDto lineDto = threeLine.toDto();
 
         assertThat(lineDto.getStations()).containsExactly("교대역", "남부터미널역", "양재역");
+    }
+
+    @Test
+    void 노선에_포함된역이_두개이하일때_제거하면_예외발생() {
+        Line line = new Line("2호선", newArrayList(new Station("강남역"), new Station("역삼역")));
+        assertThatThrownBy(() -> line.deleteStation(new Station("강남역")))
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessage("[ERROR] 역이 2개밖에 없어서 삭제가 불가능합니다.");
     }
 }
