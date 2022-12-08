@@ -32,4 +32,10 @@ public class LineServiceTest {
         assertThat(lines.get(3).getName()).isEqualTo("1호선");
         assertThat(lines.get(3).getStations()).containsExactly("신창역", "서울역");
     }
+
+    @Test
+    void 이미있는_노선이름일시_예외발생() {
+        assertThatThrownBy(() -> lineService.createLine("2호선", "신창역", "서울역"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
