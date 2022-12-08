@@ -83,4 +83,11 @@ class LineTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 없는 구간번호 입니다.");
     }
+
+    @Test
+    void 구간번호가_0일경우_예외발생() {
+        assertThatThrownBy(() -> threeLine.addStation(0, new Station("잠실역")))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 없는 구간번호 입니다.");
+    }
 }

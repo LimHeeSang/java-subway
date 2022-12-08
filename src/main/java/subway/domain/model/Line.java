@@ -10,9 +10,10 @@ import java.util.stream.Collectors;
 
 public class Line {
 
-    private static final int MINIMUM_STATION_SIZE = 2;
     private static final String ERROR_INVALID_STATIONS_SIZE = "[ERROR] 역이 2개밖에 없어서 삭제가 불가능합니다.";
+    private static final int MINIMUM_STATION_SIZE = 2;
     private static final String ERROR_NOT_EXIST_SECTION_NUMBER = "[ERROR] 없는 구간번호 입니다.";
+    private static final int MINIMUM_SECTION_NUMBER = 1;
 
     private final String name;
     private final List<Station> stations;
@@ -50,7 +51,7 @@ public class Line {
     }
 
     private void validateSectionNumber(int sectionNumber) {
-        if (sectionNumber >= stations.size()) {
+        if (sectionNumber >= stations.size() || sectionNumber < MINIMUM_SECTION_NUMBER) {
             throw new IllegalArgumentException(ERROR_NOT_EXIST_SECTION_NUMBER);
         }
     }
