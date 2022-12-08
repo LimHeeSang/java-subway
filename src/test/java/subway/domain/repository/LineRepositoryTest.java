@@ -10,6 +10,7 @@ import subway.domain.repository.provider.LineProvider;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class LineRepositoryTest {
 
@@ -32,5 +33,13 @@ class LineRepositoryTest {
         lineRepository.add(new Line("1호선"));
         Line findLine = lineRepository.findByName("1호선");
         assertThat(findLine).isEqualTo(new Line("1호선"));
+    }
+
+    @Test
+    void 노선_삭제() {
+        lineRepository.deleteByName("2호선");
+        assertThatThrownBy(() -> lineRepository.findByName("2호선"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 해당 노선을 찾을 수 없습니다.");
     }
 }

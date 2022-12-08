@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 public class LineRepository {
 
+    private static final String ERROR_NOT_EXIST_LINE = "[ERROR] 해당 노선을 찾을 수 없습니다.";
     private final List<Line> lines;
 
     public LineRepository(List<String> lines) {
@@ -28,6 +29,10 @@ public class LineRepository {
         return lines.stream()
                 .filter(line -> line.isEqual(name))
                 .findFirst()
-                .orElseThrow();
+                .orElseThrow(() -> new IllegalArgumentException(ERROR_NOT_EXIST_LINE));
+    }
+
+    public void deleteByName(String name) {
+        lines.removeIf(line -> line.isEqual(name));
     }
 }
