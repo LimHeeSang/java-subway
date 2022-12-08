@@ -11,7 +11,9 @@ import java.util.stream.Collectors;
 public class Line {
 
     private static final int MINIMUM_STATION_SIZE = 2;
-    private static final String ERROR_INVLID_STATIONS_SIZE = "[ERROR] 역이 2개밖에 없어서 삭제가 불가능합니다.";
+    private static final String ERROR_INVALID_STATIONS_SIZE = "[ERROR] 역이 2개밖에 없어서 삭제가 불가능합니다.";
+    private static final String ERROR_NOT_EXIST_SECTION_NUMBER = "[ERROR] 없는 구간번호 입니다.";
+
     private final String name;
     private final List<Station> stations;
 
@@ -43,8 +45,14 @@ public class Line {
     }
 
     public void addStation(int sectionNumber, Station station) {
+        validateSectionNumber(sectionNumber);
         stations.add(sectionNumber, station);
-        System.out.println(stations.size());
+    }
+
+    private void validateSectionNumber(int sectionNumber) {
+        if (sectionNumber >= stations.size()) {
+            throw new IllegalArgumentException(ERROR_NOT_EXIST_SECTION_NUMBER);
+        }
     }
 
     public LineDto toDto() {
@@ -65,7 +73,7 @@ public class Line {
 
     private void validateSize() {
         if (stations.size() <= MINIMUM_STATION_SIZE) {
-            throw new IllegalStateException(ERROR_INVLID_STATIONS_SIZE);
+            throw new IllegalStateException(ERROR_INVALID_STATIONS_SIZE);
         }
     }
 

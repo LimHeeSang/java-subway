@@ -76,4 +76,11 @@ class LineTest {
                 .isInstanceOf(IllegalStateException.class)
                 .hasMessage("[ERROR] 역이 2개밖에 없어서 삭제가 불가능합니다.");
     }
+
+    @Test
+    void 마지막_구간번호보다_클_경우_예외발생() {
+        assertThatThrownBy(() -> threeLine.addStation(4, new Station("잠실역")))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 없는 구간번호 입니다.");
+    }
 }
