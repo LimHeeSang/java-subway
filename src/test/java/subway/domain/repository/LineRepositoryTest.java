@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import subway.domain.model.Line;
+import subway.domain.model.Station;
 import subway.domain.repository.provider.LineProvider;
 
 import java.util.List;
@@ -48,5 +49,12 @@ class LineRepositoryTest {
         assertThatThrownBy(() -> new Line("한선"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 노선 이름은 2글자 이상이어야 합니다.");
+    }
+
+    @Test
+    void 이미있는_역이름_등록시_예외발생() {
+        assertThatThrownBy(() -> lineRepository.add(new Line("2호선")))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 이미 등록되어있는 노선 입니다.");
     }
 }

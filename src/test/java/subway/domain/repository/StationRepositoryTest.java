@@ -31,14 +31,14 @@ class StationRepositoryTest {
     @Test
     void 역_등록() {
         stationRepository.add(new Station("서울역"));
-        Station findStation = stationRepository.getByName("서울역");
+        Station findStation = stationRepository.findByName("서울역");
         assertThat(findStation).isEqualTo(new Station("서울역"));
     }
 
     @Test
     void 역_삭제() {
         stationRepository.deleteByName("역삼역");
-        assertThatThrownBy(() -> stationRepository.getByName("역삼역"))
+        assertThatThrownBy(() -> stationRepository.findByName("역삼역"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 해당 역을 찾을 수 없습니다.");
     }
