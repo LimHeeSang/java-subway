@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Sections {
 
+    private static final String ERROR_NOT_EXIST_SECTION = "[ERROR] 해당 번호는 없는 구간입니다.";
     private final List<Section> sections;
 
     public Sections() {
@@ -35,6 +36,6 @@ public class Sections {
         return sections.stream()
                 .filter(section -> section.isEqual(position))
                 .findFirst()
-                .orElseThrow();
+                .orElseThrow(() -> new IllegalArgumentException(ERROR_NOT_EXIST_SECTION));
     }
 }
