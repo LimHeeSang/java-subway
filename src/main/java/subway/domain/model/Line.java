@@ -23,7 +23,7 @@ public class Line {
 
     public void createSections(List<Station> stations) {
         for (int i = 0; i < stations.size() - 1; i++) {
-            sections.add(new Section(stations.get(i), stations.get(i + 1)));
+            sections.add(new Section(i + 1, stations.get(i), stations.get(i + 1)));
         }
     }
 
@@ -42,5 +42,9 @@ public class Line {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    public void addSection(int position, Station station) {
+        sections.addSection(position, station);
     }
 }

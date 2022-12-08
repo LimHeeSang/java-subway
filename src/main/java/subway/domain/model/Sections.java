@@ -16,13 +16,25 @@ public class Sections {
     }
 
     public List<String> toDto() {
-        System.out.println(sections.size());
-
         List<String> stations = new ArrayList<>();
         for (int i = 0; i < sections.size(); i++) {
             stations.add(sections.get(i).toLeftDto());
         }
         stations.add(sections.get(sections.size() - 1).toRightDto());
         return stations;
+    }
+
+    public void addSection(int position, Station station) {
+        Section section = getSection(position);
+        sections.remove(section);
+        List<Section> expandSections = section.expand(position, station);
+        sections.addAll(expandSections);
+    }
+
+    private Section getSection(int position) {
+        return sections.stream()
+                .filter(section -> section.isEqual(position))
+                .findFirst()
+                .orElseThrow();
     }
 }
