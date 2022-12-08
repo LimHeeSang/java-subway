@@ -20,4 +20,10 @@ public class SectionService {
         Station station = stationRepository.findByName(stationName);
         line.addStation(position, station);
     }
+
+    public void deleteSection(String lineName, String stationName) {
+        Line line = lineRepository.findByName(lineName);
+        Station station = stationRepository.findByName(stationName);
+        line.deleteStation(station);
+    }
 }

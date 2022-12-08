@@ -38,4 +38,15 @@ class SectionServiceTest {
         assertThat(lineDto.getName()).isEqualTo("2호선");
         assertThat(lineDto.getStations()).containsExactly("교대역", "강남역", "잠실역", "역삼역");
     }
+
+    @Test
+    void 구간_삭제() {
+        sectionService.deleteSection("2호선", "강남역");
+
+        Line line = lineRepository.findByName("2호선");
+        LineDto lineDto = line.toDto();
+
+        assertThat(lineDto.getName()).isEqualTo("2호선");
+        assertThat(lineDto.getStations()).containsExactly("교대역", "역삼역");
+    }
 }
