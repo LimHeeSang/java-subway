@@ -56,4 +56,11 @@ class StationRepositoryTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 이미 등록되어있는 역 입니다.");
     }
+
+    @Test
+    void 역이름이_역으로_안끝나면_예외발생() {
+        assertThatThrownBy(() -> new Station("청량리"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 역 이름은 역으로 끝나야 합니다.");
+    }
 }
