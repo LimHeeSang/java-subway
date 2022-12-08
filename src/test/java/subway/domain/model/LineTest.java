@@ -90,4 +90,11 @@ class LineTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 없는 구간번호 입니다.");
     }
+
+    @Test
+    void 해당노선에_없는역_삭제시도시_예외발생() {
+        assertThatThrownBy(() -> threeLine.deleteStation(new Station("강남역")))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 해당 노선에서 해당 역은 없습니다.");
+    }
 }

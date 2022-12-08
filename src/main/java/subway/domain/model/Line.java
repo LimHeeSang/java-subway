@@ -14,6 +14,7 @@ public class Line {
     private static final int MINIMUM_STATION_SIZE = 2;
     private static final String ERROR_NOT_EXIST_SECTION_NUMBER = "[ERROR] 없는 구간번호 입니다.";
     private static final int MINIMUM_SECTION_NUMBER = 1;
+    private static final String ERROR_NOT_EXIST_STATION = "[ERROR] 해당 노선에서 해당 역은 없습니다.";
 
     private final String name;
     private final List<Station> stations;
@@ -55,7 +56,7 @@ public class Line {
 
     public void deleteStation(Station station) {
         validateSize();
-        getStation(station);
+        validateHasStation(station);
         stations.remove(station);
     }
 
@@ -65,11 +66,10 @@ public class Line {
         }
     }
 
-    private void getStation(Station station) {
-        stations.stream()
-                .filter(s -> s.equals(station))
-                .findFirst()
-                .orElseThrow();
+    private void validateHasStation(Station station) {
+        if (!stations.contains(station)) {
+            throw new IllegalArgumentException(ERROR_NOT_EXIST_STATION);
+        }
     }
 
     public boolean hasStation(String name) {
