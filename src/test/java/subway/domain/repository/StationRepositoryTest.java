@@ -30,7 +30,7 @@ class StationRepositoryTest {
 
     @Test
     void 역_등록() {
-        stationRepository.add(new Station("서울역"));
+        stationRepository.save(new Station("서울역"));
         Station findStation = stationRepository.findByName("서울역");
         assertThat(findStation).isEqualTo(new Station("서울역"));
     }
@@ -52,7 +52,7 @@ class StationRepositoryTest {
 
     @Test
     void 이미있는_역이름_등록시_예외발생() {
-        assertThatThrownBy(() -> stationRepository.add(new Station("강남역")))
+        assertThatThrownBy(() -> stationRepository.save(new Station("강남역")))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 이미 등록되어있는 역 입니다.");
     }
