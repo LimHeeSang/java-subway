@@ -65,4 +65,9 @@ public class InputView {
         System.out.println(INPUT_DELETE_LINE_NAME_MESSAGE);
         return scanner.nextLine();
     }
+
+    public static SectionFeature inputSectionFeature() {
+        printInputFeatureMessage();
+        return SectionFeature.from(scanner.nextLine());
+    }
 }

@@ -4,24 +4,23 @@ import java.util.Arrays;
 
 import static subway.view.MainFeature.ERROR_INVALID_FEATURE_NUMBER;
 
-public enum LineFeature {
+public enum SectionFeature {
 
-    LINE_CREATE("1", "노선 등록"),
-    LINE_DELETE("2", "노선 삭제"),
-    LINE_GET("3", "노선 조회"),
+    SECTION_CREATE("1", "구간 등록"),
+    SECTION_DELETE("2", "구간 삭제"),
     QUIT("B", "돌아가기");
 
     private final String number;
     private final String name;
 
-    LineFeature(String number, String name) {
+    SectionFeature(String number, String name) {
         this.number = number;
         this.name = name;
     }
 
-    public static LineFeature from(String number) {
-        return Arrays.stream(LineFeature.values())
-                .filter(lineFeature -> lineFeature.isEqual(number))
+    public static SectionFeature from(String number) {
+        return Arrays.stream(SectionFeature.values())
+                .filter(sectionFeature -> sectionFeature.isEqual(number))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException(ERROR_INVALID_FEATURE_NUMBER));
     }
