@@ -1,4 +1,4 @@
-package subway.view;
+package subway.domain.controller.feature;
 
 import java.util.Arrays;
 

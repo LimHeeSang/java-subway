@@ -1,5 +1,10 @@
 package subway.view;
 
+import subway.domain.controller.feature.LineFeature;
+import subway.domain.controller.feature.MainFeature;
+import subway.domain.controller.feature.SectionFeature;
+import subway.domain.controller.feature.StationFeature;
+
 import java.util.Scanner;
 
 public class InputView {

@@ -1,11 +1,11 @@
-package subway.view;
+package subway.domain.controller.feature;
 
 import subway.domain.controller.StationController;
 
 import java.util.Arrays;
 import java.util.function.Consumer;
 
-import static subway.view.MainFeature.ERROR_INVALID_FEATURE_NUMBER;
+import static subway.domain.controller.feature.MainFeature.ERROR_INVALID_FEATURE_NUMBER;
 
 public enum StationFeature {
 

@@ -2,7 +2,7 @@ package subway.domain.controller;
 
 import subway.domain.service.LineService;
 import subway.view.InputView;
-import subway.view.LineFeature;
+import subway.domain.controller.feature.LineFeature;
 import subway.view.OutputView;
 
 import java.util.List;

@@ -3,7 +3,7 @@ package subway.domain.controller;
 import subway.domain.service.StationService;
 import subway.view.InputView;
 import subway.view.OutputView;
-import subway.view.StationFeature;
+import subway.domain.controller.feature.StationFeature;
 
 import java.util.List;
 

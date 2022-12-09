@@ -1,7 +1,7 @@
 package subway.domain.controller;
 
 import subway.view.InputView;
-import subway.view.MainFeature;
+import subway.domain.controller.feature.MainFeature;
 import subway.view.OutputView;
 
 import java.util.HashMap;
