@@ -4,7 +4,6 @@ import subway.domain.controller.feature.LineFeature;
 import subway.domain.service.LineService;
 import subway.view.Input.LineInputView;
 import subway.view.Output.LineOutputView;
-import subway.view.Output.MainOutputView;
 
 import java.util.List;
 

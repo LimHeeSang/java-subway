@@ -3,7 +3,6 @@ package subway.domain.controller;
 import subway.domain.controller.feature.SectionFeature;
 import subway.domain.service.SectionService;
 import subway.view.Input.SectionInputView;
-import subway.view.Output.MainOutputView;
 import subway.view.Output.SectionOutputView;
 
 public class SectionController implements Controller{
