@@ -1,6 +1,7 @@
 package subway;
 
 import org.junit.jupiter.api.Test;
+import subway.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,5 +18,10 @@ public class LearningTest {
         stations.addAll(Arrays.asList("교대역", "강남역", "역삼역"));
         stations.add(1, "잠실역");
         assertThat(stations).containsExactly("교대역", "잠실역", "강남역", "역삼역");
+    }
+
+    @Test
+    void printMainFeature() {
+        OutputView.printMainFeature();
     }
 }

@@ -29,4 +29,8 @@ public enum MainFeature {
     private boolean isEqual(String number) {
         return this.number.equals(number);
     }
+
+    public String toDto() {
+        return String.format("%s. %s", number, name);
+    }
 }
