@@ -1,6 +1,5 @@
 package subway.domain.service;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import subway.domain.model.Line;
@@ -35,7 +34,7 @@ class SectionServiceTest {
         Line line = lineRepository.findByName("2호선");
         LineDto lineDto = line.toDto();
 
-        assertThat(lineDto.getName()).isEqualTo("2호선");
+        assertThat(lineDto.getLineName()).isEqualTo("2호선");
         assertThat(lineDto.getStations()).containsExactly("교대역", "강남역", "잠실역", "역삼역");
     }
 
@@ -46,7 +45,7 @@ class SectionServiceTest {
         Line line = lineRepository.findByName("2호선");
         LineDto lineDto = line.toDto();
 
-        assertThat(lineDto.getName()).isEqualTo("2호선");
+        assertThat(lineDto.getLineName()).isEqualTo("2호선");
         assertThat(lineDto.getStations()).containsExactly("교대역", "역삼역");
     }
 

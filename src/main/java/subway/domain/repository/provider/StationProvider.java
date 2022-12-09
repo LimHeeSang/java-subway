@@ -2,6 +2,7 @@ package subway.domain.repository.provider;
 
 import subway.domain.model.Station;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class StationProvider {
     }
 
     public static List<Station> provide() {
-        return new LinkedList<>(List.of(
+        return new LinkedList<>(Arrays.asList(
                 new Station("교대역"),
                 new Station("강남역"),
                 new Station("역삼역"),

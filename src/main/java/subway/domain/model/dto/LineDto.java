@@ -4,16 +4,16 @@ import java.util.List;
 
 public class LineDto {
 
-    private final String name;
+    private final String lineName;
     private final List<String> stations;
 
-    public LineDto(String name, List<String> stations) {
-        this.name = name;
+    public LineDto(String lineName, List<String> stations) {
+        this.lineName = lineName;
         this.stations = stations;
     }
 
-    public String getName() {
-        return name;
+    public String getLineName() {
+        return lineName;
     }
 
     public List<String> getStations() {

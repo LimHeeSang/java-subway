@@ -34,4 +34,8 @@ public enum MainFeature {
     public String toString() {
         return String.format("%s. %s", number, name);
     }
+
+    public boolean isQuit() {
+        return this == QUIT;
+    }
 }

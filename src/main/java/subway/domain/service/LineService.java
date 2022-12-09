@@ -6,6 +6,7 @@ import subway.domain.model.dto.LineDto;
 import subway.domain.repository.LineRepository;
 import subway.domain.repository.StationRepository;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,7 +27,7 @@ public class LineService {
         stationRepository.save(startStation);
         stationRepository.save(endStation);
 
-        Line line = new Line(lineName, new LinkedList<>(List.of(startStation, endStation)));
+        Line line = new Line(lineName, new LinkedList<>(Arrays.asList(startStation, endStation)));
         lineRepository.save(line);
     }
 

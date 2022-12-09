@@ -4,6 +4,7 @@ import subway.domain.model.Line;
 import subway.domain.model.Station;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class LineProvider {
@@ -12,14 +13,14 @@ public class LineProvider {
     }
 
     public static List<Line> provide() {
-        return new ArrayList<>(List.of(
+        return new ArrayList<>(Arrays.asList(
                 new Line("2호선", createTwoLineStations()),
                 new Line("3호선", createThreeLineStations()),
                 new Line("신분당선", createSinbundangStations())));
     }
 
     private static List<Station> createTwoLineStations() {
-        return new ArrayList<>(List.of(
+        return new ArrayList<>(Arrays.asList(
                 new Station("교대역"),
                 new Station("강남역"),
                 new Station("역삼역")
@@ -27,7 +28,7 @@ public class LineProvider {
     }
 
     private static List<Station> createThreeLineStations() {
-        return new ArrayList<>(List.of(
+        return new ArrayList<>(Arrays.asList(
                 new Station("교대역"),
                 new Station("남부터미널역"),
                 new Station("양재역"),
@@ -36,7 +37,7 @@ public class LineProvider {
     }
 
     private static List<Station> createSinbundangStations() {
-        return new ArrayList<>(List.of(
+        return new ArrayList<>(Arrays.asList(
                 new Station("강남역"),
                 new Station("양재역"),
                 new Station("양재시민의숲역")

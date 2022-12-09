@@ -31,7 +31,7 @@ class LineTest {
         twoLine.addStation(2, new Station("잠실역"));
         LineDto lineDto = twoLine.toDto();
 
-        assertThat(lineDto.getName()).isEqualTo("2호선");
+        assertThat(lineDto.getLineName()).isEqualTo("2호선");
         assertThat(lineDto.getStations()).containsExactly("교대역", "강남역", "잠실역", "역삼역");
     }
 

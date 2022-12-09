@@ -16,10 +16,9 @@ public class InputView {
     private static final String INPUT_CREATE_SECTION_POSITION = "## 순서를 입력하세요.";
     private static final String INPUT_DELETE_SECTION_LINE_NAME_MESSAGE = "## 삭제할 구간의 노선을 입력하세요.";
     private static final String INPUT_DELETE_SECTION_STATION_NAME = "## 삭제할 구간의 역을 입력하세요.";
-    private static Scanner scanner;
+    private static Scanner scanner = new Scanner(System.in);
 
     private InputView() {
-        scanner = new Scanner(System.in);
     }
 
     public static MainFeature inputMainFeature() {

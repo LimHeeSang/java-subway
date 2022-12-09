@@ -28,7 +28,7 @@ public class LineServiceTest {
     void 노선_등록() {
         lineService.createLine("1호선", "신창역", "서울역");
         List<LineDto> lines = lineService.getLinesAndStations();
-        assertThat(lines.get(3).getName()).isEqualTo("1호선");
+        assertThat(lines.get(3).getLineName()).isEqualTo("1호선");
         assertThat(lines.get(3).getStations()).containsExactly("신창역", "서울역");
     }
 
