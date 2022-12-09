@@ -1,10 +1,10 @@
 package subway;
 
-import subway.domain.controller.SubwayController;
+import subway.domain.controller.MainController;
 
 public class Application {
     public static void main(String[] args) {
-        SubwayController subwayController = AppConfig.subwayController();
-        subwayController.run();
+        MainController mainController = AppConfig.subwayController();
+        mainController.run();
     }
 }

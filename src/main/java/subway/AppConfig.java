@@ -4,7 +4,7 @@ import subway.domain.controller.LineController;
 import subway.domain.controller.LinePrintController;
 import subway.domain.controller.SectionController;
 import subway.domain.controller.StationController;
-import subway.domain.controller.SubwayController;
+import subway.domain.controller.MainController;
 import subway.domain.repository.LineRepository;
 import subway.domain.repository.StationRepository;
 import subway.domain.repository.provider.LineProvider;
@@ -18,8 +18,8 @@ public class AppConfig {
     private AppConfig() {
     }
 
-    public static SubwayController subwayController() {
-        return new SubwayController(stationController(), lineController(), sectionController(), linePrintController());
+    public static MainController subwayController() {
+        return new MainController(stationController(), lineController(), sectionController(), linePrintController());
     }
 
     private static StationController stationController() {

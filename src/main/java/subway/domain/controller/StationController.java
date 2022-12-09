@@ -1,9 +1,9 @@
 package subway.domain.controller;
 
-import subway.domain.service.StationService;
-import subway.view.InputView;
-import subway.view.OutputView;
 import subway.domain.controller.feature.StationFeature;
+import subway.domain.service.StationService;
+import subway.view.Input.StationInputView;
+import subway.view.OutputView;
 
 import java.util.List;
 
@@ -18,18 +18,18 @@ public class StationController implements Controller{
     @Override
     public void run() {
         OutputView.printStationFeature();
-        StationFeature stationFeature = InputView.inputStationFeature();
+        StationFeature stationFeature = StationInputView.inputStationFeature();
         stationFeature.process(this);
     }
 
     public void createStation() {
-        String stationName = InputView.inputCreateStationName();
+        String stationName = StationInputView.inputCreateStationName();
         stationService.createStation(stationName);
         OutputView.printCreateStation();
     }
 
     public void deleteStation() {
-        String stationName = InputView.inputDeleteStationName();
+        String stationName = StationInputView.inputDeleteStationName();
         stationService.deleteStation(stationName);
         OutputView.printDeleteStation();
     }

@@ -1,18 +1,18 @@
 package subway.domain.controller;
 
-import subway.view.InputView;
+import subway.view.Input.MainInputView;
 import subway.domain.controller.feature.MainFeature;
 import subway.view.OutputView;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class SubwayController {
+public class MainController {
 
     private final Map<MainFeature, Controller> controllers;
 
-    public SubwayController(StationController stationController, LineController lineController,
-                            SectionController sectionController, LinePrintController linePrintController) {
+    public MainController(StationController stationController, LineController lineController,
+                          SectionController sectionController, LinePrintController linePrintController) {
         controllers = new HashMap<>();
         controllers.put(MainFeature.STATION_MANAGEMENT, stationController);
         controllers.put(MainFeature.LINE_MANAGEMENT, lineController);
@@ -25,7 +25,7 @@ public class SubwayController {
         MainFeature mainFeature;
         do {
             OutputView.printMainFeature();
-            mainFeature = InputView.inputMainFeature();
+            mainFeature = MainInputView.inputMainFeature();
             Controller controller = controllers.get(mainFeature);
             controller.run();
         } while (!mainFeature.isQuit());
