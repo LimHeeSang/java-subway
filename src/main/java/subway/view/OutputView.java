@@ -32,9 +32,19 @@ public class OutputView {
 
     public static void printCreateStation() {
         System.out.println(INFO_CREATE_STATION_MESSAGE);
+        printBlank();
     }
 
     public static void printDeleteStation() {
         System.out.println(INFO_DELETE_STATION_MESSAGE);
+        printBlank();
+    }
+
+    public static void printLineFeature() {
+        System.out.println(MAIN_FEATURE_MESSAGE);
+        for (LineFeature lineFeature : LineFeature.values()) {
+            System.out.println(lineFeature.toString());
+        }
+        printBlank();
     }
 }
