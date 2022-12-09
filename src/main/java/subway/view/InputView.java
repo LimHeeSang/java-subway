@@ -36,4 +36,9 @@ public class InputView {
         System.out.println(INPUT_DELETE_STATION_NAME_MESSAGE);
         return scanner.nextLine();
     }
+
+    public static LineFeature inputLineFeature() {
+        printInputFeatureMessage();
+        return LineFeature.from(scanner.nextLine());
+    }
 }
