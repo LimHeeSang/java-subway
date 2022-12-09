@@ -1,7 +1,7 @@
 package subway;
 
 import org.junit.jupiter.api.Test;
-import subway.view.OutputView;
+import subway.view.Output.MainOutputView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,6 +22,6 @@ public class LearningTest {
 
     @Test
     void printMainFeature() {
-        OutputView.printMainFeature();
+        MainOutputView.printMainFeature();
     }
 }

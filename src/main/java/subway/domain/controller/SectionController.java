@@ -3,7 +3,8 @@ package subway.domain.controller;
 import subway.domain.controller.feature.SectionFeature;
 import subway.domain.service.SectionService;
 import subway.view.Input.SectionInputView;
-import subway.view.OutputView;
+import subway.view.Output.MainOutputView;
+import subway.view.Output.SectionOutputView;
 
 public class SectionController implements Controller{
 
@@ -15,7 +16,7 @@ public class SectionController implements Controller{
 
     @Override
     public void run() {
-        OutputView.printSectionFeature();
+        SectionOutputView.printSectionFeature();
         SectionFeature sectionFeature = SectionInputView.inputSectionFeature();
         sectionFeature.process(this);
     }
@@ -26,7 +27,7 @@ public class SectionController implements Controller{
         int position = SectionInputView.inputCreateSectionPosition();
 
         sectionService.createSection(lineName, stationName, position);
-        OutputView.printCreateSection();
+        SectionOutputView.printCreateSection();
     }
 
     public void deleteSection() {
@@ -34,7 +35,7 @@ public class SectionController implements Controller{
         String stationName = SectionInputView.inputDeleteSectionStationName();
 
         sectionService.deleteSection(lineName, stationName);
-        OutputView.printDeleteSection();
+        SectionOutputView.printDeleteSection();
     }
 
     public void back() {

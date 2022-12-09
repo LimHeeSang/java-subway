@@ -2,7 +2,8 @@ package subway.domain.controller;
 
 import subway.domain.model.dto.LineDto;
 import subway.domain.service.LineService;
-import subway.view.OutputView;
+import subway.view.Output.LinePrintOutputView;
+import subway.view.Output.MainOutputView;
 
 import java.util.List;
 
@@ -17,6 +18,6 @@ public class LinePrintController implements Controller{
     @Override
     public void run() {
         List<LineDto> lineDtos = lineService.getLinesAndStations();
-        OutputView.printLinesAndStations(lineDtos);
+        LinePrintOutputView.printLinesAndStations(lineDtos);
     }
 }

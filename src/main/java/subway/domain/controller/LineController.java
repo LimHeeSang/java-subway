@@ -3,7 +3,8 @@ package subway.domain.controller;
 import subway.domain.controller.feature.LineFeature;
 import subway.domain.service.LineService;
 import subway.view.Input.LineInputView;
-import subway.view.OutputView;
+import subway.view.Output.LineOutputView;
+import subway.view.Output.MainOutputView;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class LineController implements Controller{
 
     @Override
     public void run() {
-        OutputView.printLineFeature();
+        LineOutputView.printLineFeature();
         LineFeature lineFeature = LineInputView.inputLineFeature();
         lineFeature.process(this);
     }
@@ -28,18 +29,18 @@ public class LineController implements Controller{
         String downStationName = LineInputView.inputCreateDownStationName();
 
         lineService.createLine(lineName, upStationName, downStationName);
-        OutputView.printCreateLine();
+        LineOutputView.printCreateLine();
     }
 
     public void deleteLine() {
         String deleteLineName = LineInputView.inputDeleteLineName();
         lineService.deleteLine(deleteLineName);
-        OutputView.printDeleteLine();
+        LineOutputView.printDeleteLine();
     }
 
     public void getLines() {
         List<String> lines = lineService.getLines();
-        OutputView.printLines(lines);
+        LineOutputView.printLines(lines);
     }
 
     public void back() {

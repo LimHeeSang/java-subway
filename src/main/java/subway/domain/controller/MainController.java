@@ -2,7 +2,7 @@ package subway.domain.controller;
 
 import subway.view.Input.MainInputView;
 import subway.domain.controller.feature.MainFeature;
-import subway.view.OutputView;
+import subway.view.Output.MainOutputView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +24,7 @@ public class MainController {
     public void run() {
         MainFeature mainFeature;
         do {
-            OutputView.printMainFeature();
+            MainOutputView.printMainFeature();
             mainFeature = MainInputView.inputMainFeature();
             Controller controller = controllers.get(mainFeature);
             controller.run();
