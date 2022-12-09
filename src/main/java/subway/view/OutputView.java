@@ -6,6 +6,8 @@ public class OutputView {
     private static final String STATION_FEATURE_MESSAGE = "## 역 관리 화면";
     private static final String INFO_CREATE_STATION_MESSAGE = "[INFO] 지하철 역이 등록되었습니다.";
     private static final String INFO_DELETE_STATION_MESSAGE = "[INFO] 지하철 역이 삭제되었습니다.";
+    private static final String INFO_CREATE_LINE_MESSAGE = "[INFO] 지하철 노선이 등록되었습니다.";
+    private static final String INFO_DELETE_LINE_MESSAGE = "[INFO] 지하철 노선이 삭제되었습니다.";
 
     private OutputView() {
     }
@@ -45,6 +47,16 @@ public class OutputView {
         for (LineFeature lineFeature : LineFeature.values()) {
             System.out.println(lineFeature.toString());
         }
+        printBlank();
+    }
+
+    public static void printCreateLine() {
+        System.out.println(INFO_CREATE_LINE_MESSAGE);
+        printBlank();
+    }
+
+    public static void printDeleteLine() {
+        System.out.println(INFO_DELETE_LINE_MESSAGE);
         printBlank();
     }
 }
