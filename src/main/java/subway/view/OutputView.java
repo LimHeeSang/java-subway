@@ -4,6 +4,8 @@ public class OutputView {
 
     private static final String MAIN_FEATURE_MESSAGE = "## 메인 화면";
     private static final String STATION_FEATURE_MESSAGE = "## 역 관리 화면";
+    private static final String INFO_CREATE_STATION_MESSAGE = "[INFO] 지하철 역이 등록되었습니다.";
+    private static final String INFO_DELETE_STATION_MESSAGE = "[INFO] 지하철 역이 삭제되었습니다.";
 
     private OutputView() {
     }
@@ -26,5 +28,13 @@ public class OutputView {
             System.out.println(stationFeature.toString());
         }
         printBlank();
+    }
+
+    public static void printCreateStation() {
+        System.out.println(INFO_CREATE_STATION_MESSAGE);
+    }
+
+    public static void printDeleteStation() {
+        System.out.println(INFO_DELETE_STATION_MESSAGE);
     }
 }
