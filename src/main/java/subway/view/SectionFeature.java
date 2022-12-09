@@ -28,4 +28,9 @@ public enum SectionFeature {
     private boolean isEqual(String number) {
         return this.number.equals(number);
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s. %s", number, name);
+    }
 }

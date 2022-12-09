@@ -59,4 +59,12 @@ public class OutputView {
         System.out.println(INFO_DELETE_LINE_MESSAGE);
         printBlank();
     }
+
+    public static void printSectionFeature() {
+        System.out.println(MAIN_FEATURE_MESSAGE);
+        for (SectionFeature sectionFeature : SectionFeature.values()) {
+            System.out.println(sectionFeature.toString());
+        }
+        printBlank();
+    }
 }
