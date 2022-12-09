@@ -13,4 +13,8 @@ public class InputView {
     public static MainFeature inputMainFeature() {
         return MainFeature.from(scanner.nextLine());
     }
+
+    public static StationFeature inputStationFeature() {
+        return StationFeature.from(scanner.nextLine());
+    }
 }
