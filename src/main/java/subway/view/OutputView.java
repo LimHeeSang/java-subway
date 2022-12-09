@@ -3,6 +3,7 @@ package subway.view;
 public class OutputView {
 
     private static final String MAIN_FEATURE_MESSAGE = "## 메인 화면";
+    private static final String STATION_FEATURE_MESSAGE = "## 역 관리 화면";
 
     private OutputView() {
     }
@@ -10,12 +11,20 @@ public class OutputView {
     public static void printMainFeature() {
         System.out.println(MAIN_FEATURE_MESSAGE);
         for (MainFeature mainFeature : MainFeature.values()) {
-            System.out.println(mainFeature.toDto());
+            System.out.println(mainFeature.toString());
         }
         printBlank();
     }
 
     private static void printBlank() {
         System.out.println();
+    }
+
+    public static void printStationFeature() {
+        System.out.println(STATION_FEATURE_MESSAGE);
+        for (StationFeature stationFeature : StationFeature.values()) {
+            System.out.println(stationFeature.toString());
+        }
+        printBlank();
     }
 }

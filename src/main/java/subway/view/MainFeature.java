@@ -30,7 +30,8 @@ public enum MainFeature {
         return this.number.equals(number);
     }
 
-    public String toDto() {
+    @Override
+    public String toString() {
         return String.format("%s. %s", number, name);
     }
 }
