@@ -11,6 +11,9 @@ public class InputView {
     private static final String INPUT_CREATE_LINE_UP_STATION_MESSAGE = "## 등록할 노선의 상행 종점역 이름을 입력하세요.";
     private static final String INPUT_CREATE_LINE_DOWN_STATION_MESSAGE = "## 등록할 노선의 하행 종점역 이름을 입력하세요.";
     private static final String INPUT_DELETE_LINE_NAME_MESSAGE = "## 삭제할 노선 이름을 입력하세요.";
+    private static final String INPUT_CREATE_SECTION_LINE_NAME_MESSAGE = "## 노선을 입력하세요.";
+    private static final String INPUT_CREATE_SECTION_STATION_NAME = "## 역이름을 입력하세요.";
+    private static final String INPUT_CREATE_SECTION_POSITION = "## 순서를 입력하세요.";
     private static Scanner scanner;
 
     private InputView() {
@@ -69,5 +72,21 @@ public class InputView {
     public static SectionFeature inputSectionFeature() {
         printInputFeatureMessage();
         return SectionFeature.from(scanner.nextLine());
+    }
+
+    public static String inputCreateSectionLineName() {
+        System.out.println(INPUT_CREATE_SECTION_LINE_NAME_MESSAGE);
+        return scanner.nextLine();
+    }
+
+    public static String inputCreateSectionStationName() {
+        System.out.println(INPUT_CREATE_SECTION_STATION_NAME);
+        return scanner.nextLine();
+    }
+
+    public static int inputCreateSectionPosition() {
+        System.out.println(INPUT_CREATE_SECTION_POSITION);
+        String position = scanner.nextLine();
+        return Integer.parseInt(position);
     }
 }
